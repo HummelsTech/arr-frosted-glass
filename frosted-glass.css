@@ -277,11 +277,17 @@ body [class*="SeriesDetailsSeason-season"] {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Season header & collapse button — no extra background */
+/* Season header, all children — no extra background */
 body [class*="SeriesDetailsSeason-header"],
-body [class*="SeriesDetailsSeason-collapseButtonContainer"] {
+body [class*="SeriesDetailsSeason-header"] > *,
+body [class*="SeriesDetailsSeason-collapseButtonContainer"],
+body [class*="SeriesDetailsSeason-seasonNumber"],
+body [class*="SeriesDetailsSeason-left"],
+body [class*="SeriesDetailsSeason-expandButton"],
+body [class*="SeriesDetailsSeason-actions"] {
   background: transparent !important;
   border: none !important;
+  box-shadow: none !important;
 }
 
 /* Radarr / generic expandable */
