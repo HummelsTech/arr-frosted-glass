@@ -642,14 +642,39 @@ body .mantine-Select-input {
   color: rgba(234, 235, 238, 0.95) !important;
 }
 
+/* === Bazarr toolbar/group bar === */
+body .mantine-Group-root,
+body [class*="_group_"] {
+  background: transparent !important;
+}
+
+/* === Bazarr progress bar track — subtle === */
+body .mantine-Progress-root {
+  background: rgba(234, 235, 238, 0.1) !important;
+}
+
 /* === Bazarr buttons — transparent, rounded === */
 body .mantine-Button-root {
+  background: rgba(25, 28, 45, 0.15) !important;
   border-radius: 8px !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+}
+
+body .mantine-Button-root:hover {
+  background: rgba(25, 28, 45, 0.3) !important;
 }
 
 /* === Bazarr badges (LIVE, counts) === */
 body .mantine-Badge-root {
   border-radius: 6px !important;
+}
+
+/* === Bazarr search input === */
+body .mantine-Input-wrapper input,
+body .mantine-TextInput-input {
+  background: rgba(30, 33, 54, 0.6) !important;
+  color: rgba(234, 235, 238, 0.95) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.12) !important;
 }
 
 /* === Bazarr text colors === */
