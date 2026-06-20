@@ -390,6 +390,26 @@ body th {
   background: rgba(0, 0, 0, 0.6) !important;
 }
 
+/* === Select dropdowns / option lists === */
+body select option,
+body [class*="SelectOption"],
+body [class*="optionList"],
+body [class*="OptionList"],
+body .ReactSelect__menu,
+body .ReactSelect__option,
+body [class*="react-select"],
+body [class*="Select__menu"],
+body [class*="Select__option"] {
+  background: rgba(30, 30, 30, 0.95) !important;
+  color: rgba(234, 235, 238, 0.9) !important;
+}
+
+body select option:hover,
+body [class*="Select__option--is-focused"],
+body .ReactSelect__option--is-focused {
+  background: rgba(255, 152, 0, 0.15) !important;
+}
+
 /* === Dropdowns / menus === */
 [class*="MenuContent"],
 [class*="Menu-menu"],
@@ -543,6 +563,27 @@ body [class*="OverlayScroller-thumb"] {
 body .mantine-AppShell-root,
 body .m_89ab340 {
   background: transparent !important;
+}
+
+/* === Bazarr accent color — orange (override grape/purple) === */
+body :root,
+body {
+  --mantine-primary-color-filled: rgb(255, 152, 0) !important;
+  --mantine-primary-color-filled-hover: rgb(230, 130, 0) !important;
+  --mantine-primary-color-light: rgba(255, 152, 0, 0.15) !important;
+  --mantine-primary-color-light-hover: rgba(255, 152, 0, 0.25) !important;
+  --mantine-primary-color-light-color: rgb(255, 152, 0) !important;
+  --mantine-color-grape-6: rgb(255, 152, 0) !important;
+  --mantine-color-grape-5: rgb(255, 170, 40) !important;
+  --mantine-color-grape-filled: rgb(255, 152, 0) !important;
+  --mantine-color-grape-light: rgba(255, 152, 0, 0.15) !important;
+  --mantine-color-grape-light-hover: rgba(255, 152, 0, 0.25) !important;
+  --mantine-color-grape-light-color: rgb(255, 152, 0) !important;
+}
+
+/* Bazarr active sidebar link — orange border */
+body [class*="_active_"] {
+  border-left-color: rgb(255, 152, 0) !important;
 }
 
 /* === Bazarr navbar — glass === */
@@ -701,4 +742,273 @@ body .mantine-Title-root {
 [class*="ExpandableSection"] {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
   border: none !important;
+}
+
+/* ============================================================
+   LIGHT MODE OVERRIDES
+   Switches text to dark, glass tints to white, when system is light.
+   ============================================================ */
+@media (prefers-color-scheme: light) {
+
+  /* --- Body --- */
+  body {
+    background-color: #e0e8f0 !important;
+    color: rgba(19, 21, 54, 0.95) !important;
+  }
+
+  /* --- All text dark --- */
+  body span, body p, body div, body label,
+  body h1, body h2, body h3, body h4, body h5, body h6,
+  body a, body td, body th, body tr, body table,
+  body input, body select, body textarea, body button,
+  body .page, body #root,
+  body [class*="Page-page"],
+  body [class*="PageContent"],
+  body [class*="PageContentBody"],
+  body [class*="contentBody"],
+  body [class*="innerContentBody"] {
+    color: rgba(19, 21, 54, 0.9) !important;
+  }
+
+  body a:hover {
+    color: rgb(200, 100, 0) !important;
+  }
+
+  /* --- Muted / secondary text --- */
+  body [class*="subtitle"], body [class*="Subtitle"],
+  body [class*="secondary"], body [class*="hint"] {
+    color: rgba(19, 21, 54, 0.55) !important;
+  }
+
+  /* --- Header — light glass --- */
+  body [class*="PageHeader-header"] {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-bottom: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+
+  /* --- Sidebar — light glass --- */
+  body [class*="PageSidebar-sidebarContainer"],
+  body [class*="PageSidebar"] {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-right: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+
+  /* --- Sidebar items --- */
+  body [class*="PageSidebarItem-item"],
+  body [class*="PageSidebarItem-link"],
+  body [class*="PageSidebarItem-iconContainer"],
+  body [class*="PageSidebarItem-childLink"],
+  body [class*="PageSidebarItem-noIcon"] {
+    background: transparent !important;
+  }
+  body [class*="PageSidebarItem-isActiveItem"],
+  body [class*="PageSidebarItem-isActiveParentLink"],
+  body [class*="PageSidebarItem-isActiveLink"] {
+    background: rgba(19, 21, 54, 0.06) !important;
+  }
+  body [class*="PageSidebarItem-item"]:hover {
+    background: rgba(19, 21, 54, 0.08) !important;
+  }
+
+  /* --- Toolbar buttons --- */
+  body [class*="PageToolbarButton-toolbarButton"],
+  body [class*="ToolbarMenuButton-menuButton"] {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+  body [class*="PageToolbarButton-toolbarButton"]:hover,
+  body [class*="ToolbarMenuButton-menuButton"]:hover {
+    background: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* --- Poster info footers --- */
+  [class*="SeriesIndexPoster-link"],
+  [class*="MovieIndexPoster-link"] {
+    background: rgba(255, 255, 255, 0.6) !important;
+  }
+  [class*="SeriesIndexPoster-title"],
+  [class*="MovieIndexPoster-title"] {
+    background: rgba(255, 255, 255, 0.45) !important;
+  }
+  [class*="SeriesIndexPoster-nextAiring"],
+  [class*="MovieIndexPoster-nextAiring"],
+  [class*="MovieIndexPoster-inCinemas"],
+  [class*="MovieIndexPoster-released"] {
+    background: rgba(255, 255, 255, 0.5) !important;
+  }
+  [class*="SeriesIndexPoster-controls"],
+  [class*="MovieIndexPoster-controls"] {
+    background: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  /* --- Detail pages --- */
+  [class*="SeriesDetails-header"], [class*="SeriesDetails-headerContent"],
+  [class*="MovieDetails-header"], [class*="MovieDetails-headerContent"],
+  [class*="SeriesDetails-info"], [class*="MovieDetails-info"],
+  [class*="SeriesDetails-titleRow"], [class*="MovieDetails-titleRow"] {
+    background: rgba(255, 255, 255, 0.35) !important;
+  }
+  body [class*="SeriesDetails-backdropOverlay"],
+  body [class*="MovieDetails-backdropOverlay"] {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* --- Season panels --- */
+  body [class*="SeriesDetailsSeason-season"] {
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  /* --- Tables --- */
+  body table, body [class*="Table-table"] {
+    background: rgba(255, 255, 255, 0.2) !important;
+  }
+  body th {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+  body tr:nth-child(even) {
+    background: rgba(19, 21, 54, 0.02) !important;
+  }
+  body tr:nth-child(odd) {
+    background: transparent !important;
+  }
+  body [class*="TableRow"]:hover, body tr:hover {
+    background: rgba(255, 152, 0, 0.08) !important;
+  }
+
+  /* --- Cards / panels --- */
+  [class*="Card-card"], [class*="FieldSet"], [class*="fieldSet"] {
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+
+  /* --- Modals --- */
+  [class*="Modal-modal"], [class*="ModalContent"],
+  [class*="modal-content"] {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.08) !important;
+  }
+
+  /* --- Menus / dropdowns --- */
+  [class*="MenuContent"], [class*="Menu-menu"],
+  [class*="Popover"], [class*="popover"] {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.08) !important;
+  }
+  [class*="MenuItem"]:hover, [class*="menuItem"]:hover {
+    background: rgba(255, 152, 0, 0.1) !important;
+  }
+  body select option, body [class*="SelectOption"],
+  body [class*="Select__menu"], body [class*="Select__option"] {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: rgba(19, 21, 54, 0.9) !important;
+  }
+
+  /* --- Inputs --- */
+  [class*="TextInput"], [class*="NumberInput"], [class*="FormInput"],
+  input[type="text"], input[type="number"], input[type="search"],
+  select, textarea {
+    background: rgba(255, 255, 255, 0.6) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.1) !important;
+    color: rgba(19, 21, 54, 0.9) !important;
+  }
+
+  /* --- Buttons --- */
+  body button, body [class*="Button-button"],
+  body [class*="SpinnerButton"], body [class*="IconButton"],
+  body [class*="PageHeaderActionsMenu-menuButton"] {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+  body button:hover, body [class*="Button-button"]:hover {
+    background: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* --- Labels --- */
+  body [class*="Label-default"], body [class*="Label-small"],
+  body [class*="Label-large"], body [class*="Label-label"],
+  body [class*="detailsLabel"] {
+    background: rgba(255, 255, 255, 0.5) !important;
+    color: rgba(19, 21, 54, 0.85) !important;
+    border-color: rgba(19, 21, 54, 0.1) !important;
+  }
+
+  /* --- Footer --- */
+  [class*="SeriesIndexFooter"], [class*="MovieIndexFooter"],
+  [class*="IndexerIndexFooter"], [class*="PageContentFooter"] {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-top: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+
+  /* --- Scrollbar --- */
+  ::-webkit-scrollbar-thumb { background: rgba(19, 21, 54, 0.15); }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(19, 21, 54, 0.3); }
+  body [class*="OverlayScroller-thumb"] {
+    background: rgba(19, 21, 54, 0.15) !important;
+  }
+
+  /* --- Glass bevel — lighter for light mode --- */
+  [class*="PageSidebar"], [class*="PageHeader-header"], [class*="Modal-modal"] {
+    box-shadow:
+      3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.5) inset,
+      -2px -2px 0.5px -2px rgba(255, 255, 255, 0.4) inset,
+      0 0 8px 1px rgba(255, 255, 255, 0.2) inset,
+      0 12px 20px rgba(0, 0, 0, 0.08) !important;
+  }
+  [class*="Card-card"], [class*="FieldSet"],
+  [class*="SeriesDetailsSeason-season"], [class*="ExpandableSection"] {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important;
+  }
+
+  /* --- Bazarr Mantine light overrides --- */
+  body .mantine-AppShell-navbar, body nav.m_45252eee {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-right: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+  body .mantine-AppShell-header, body header.m_3b16f56b {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-bottom: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+    color: rgba(19, 21, 54, 0.95) !important;
+  }
+  body .mantine-AppShell-navbar a, body .mantine-NavLink-root {
+    color: rgba(19, 21, 54, 0.8) !important;
+  }
+  body .mantine-Table-root, body .mantine-Table-thead, body .mantine-Table-th {
+    background: rgba(255, 255, 255, 0.35) !important;
+    color: rgba(19, 21, 54, 0.9) !important;
+  }
+  body .mantine-Table-td {
+    color: rgba(19, 21, 54, 0.85) !important;
+  }
+  body .mantine-Paper-root {
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+    color: rgba(19, 21, 54, 0.9) !important;
+  }
+  body .mantine-Modal-content {
+    background: rgba(255, 255, 255, 0.85) !important;
+  }
+  body .mantine-Input-input, body .mantine-TextInput-input,
+  body .mantine-Select-input, body .mantine-Input-wrapper input {
+    background: rgba(255, 255, 255, 0.6) !important;
+    color: rgba(19, 21, 54, 0.9) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.1) !important;
+  }
+  body .mantine-Button-root {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 0.5px solid rgba(19, 21, 54, 0.06) !important;
+  }
+  body .mantine-Text-root, body .mantine-Title-root {
+    color: rgba(19, 21, 54, 0.9) !important;
+  }
+  body .mantine-Progress-root {
+    background: rgba(19, 21, 54, 0.08) !important;
+  }
+
+  /* --- Calendar / Queue light --- */
+  [class*="Calendar"], [class*="CalendarDay"] {
+    background: rgba(255, 255, 255, 0.4) !important;
+  }
+  [class*="Queue-queue"], [class*="QueueRow"] {
+    background: rgba(255, 255, 255, 0.35) !important;
+  }
 }

@@ -1,0 +1,25 @@
+/* Background — auto light/dark based on system preference */
+
+/* Dark mode (default / evening) */
+body::before {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(60, 100, 140, 0.25), transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 152, 0, 0.06), transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(80, 120, 160, 0.15), transparent 50%),
+    linear-gradient(160deg, #0f1623, #162030 30%, #1a2a3d 60%, #0f1623) !important;
+  filter: none !important;
+}
+
+/* Light mode (daytime) — more variation for glass depth */
+@media (prefers-color-scheme: light) {
+  body::before {
+    background:
+      radial-gradient(ellipse at 15% 30%, rgba(120, 170, 220, 0.35), transparent 45%),
+      radial-gradient(ellipse at 85% 25%, rgba(255, 190, 80, 0.18), transparent 40%),
+      radial-gradient(ellipse at 50% 90%, rgba(100, 160, 210, 0.25), transparent 45%),
+      radial-gradient(ellipse at 75% 60%, rgba(180, 210, 240, 0.3), transparent 50%),
+      radial-gradient(ellipse at 30% 70%, rgba(200, 180, 220, 0.12), transparent 40%),
+      linear-gradient(150deg, #b8cce0, #ccdaec 25%, #dde8f2 50%, #d0dfed 75%, #bccfe4) !important;
+    filter: none !important;
+  }
+}
