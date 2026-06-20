@@ -157,7 +157,7 @@ body [class*="ToolbarMenuButton-menuButton"]:hover {
    DETAIL PAGES (Series/Movie detail)
    ============================================================ */
 
-/* === Detail header/banner === */
+/* === Detail header/banner — rounded === */
 [class*="SeriesDetails-header"],
 [class*="SeriesDetails-info"],
 [class*="SeriesDetails-titleRow"],
@@ -173,12 +173,29 @@ body [class*="ToolbarMenuButton-menuButton"]:hover {
   background: rgba(25, 28, 45, 0.35) !important;
   backdrop-filter: blur(12px) saturate(1.1) !important;
   -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
 }
 
-/* === Detail backdrop overlay — semi-transparent === */
+/* === Detail poster image — rounded === */
+[class*="SeriesDetails-poster"],
+[class*="MovieDetails-poster"] {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* === Detail backdrop overlay — semi-transparent, rounded === */
 body [class*="SeriesDetails-backdropOverlay"],
 body [class*="MovieDetails-backdropOverlay"] {
   background: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 12px !important;
+}
+
+/* === Detail backdrop image — rounded === */
+body [class*="SeriesDetails-backdrop"],
+body [class*="MovieDetails-backdrop"] {
+  border-radius: 12px !important;
+  overflow: hidden !important;
 }
 
 /* === Season / file panels === */
