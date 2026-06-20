@@ -439,6 +439,129 @@ body [class*="Button-danger"] {
 ::-webkit-scrollbar-thumb { background: rgba(68, 68, 88, 0.5); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(68, 68, 88, 0.8); }
 
+/* ============================================================
+   BAZARR (Mantine UI — different from *Arr apps)
+   ============================================================ */
+
+/* === Bazarr body background fix === */
+body .mantine-AppShell-root,
+body .m_89ab340 {
+  background: transparent !important;
+}
+
+/* === Bazarr navbar — glass === */
+body .mantine-AppShell-navbar,
+body nav.m_45252eee {
+  background: rgba(25, 28, 45, 0.2) !important;
+  backdrop-filter: blur(14px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.1) !important;
+  border-right: 0.5px solid rgba(234, 235, 238, 0.06) !important;
+}
+
+/* === Bazarr navbar links — transparent === */
+body .mantine-AppShell-navbar a,
+body .mantine-NavLink-root {
+  background: transparent !important;
+  border-radius: 8px !important;
+  color: rgba(234, 235, 238, 0.85) !important;
+}
+
+body .mantine-NavLink-root:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body .mantine-NavLink-root[data-active] {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* === Bazarr header — glass === */
+body .mantine-AppShell-header,
+body header.m_3b16f56b {
+  background: rgba(25, 28, 45, 0.55) !important;
+  backdrop-filter: blur(12px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
+  border-bottom: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+  color: rgba(234, 235, 238, 0.95) !important;
+}
+
+/* === Bazarr main content — transparent === */
+body .mantine-AppShell-main {
+  background: transparent !important;
+}
+
+/* === Bazarr tables === */
+body .mantine-Table-root,
+body .mantine-Table-thead,
+body .mantine-Table-th {
+  background: rgba(25, 28, 45, 0.35) !important;
+  color: rgba(234, 235, 238, 0.9) !important;
+}
+
+body .mantine-Table-tr {
+  border-bottom: 0.5px solid rgba(234, 235, 238, 0.06) !important;
+}
+
+body .mantine-Table-tr:nth-child(even) {
+  background: rgba(25, 28, 45, 0.15) !important;
+}
+
+body .mantine-Table-tr:hover {
+  background: rgba(255, 152, 0, 0.08) !important;
+}
+
+body .mantine-Table-td {
+  color: rgba(234, 235, 238, 0.85) !important;
+}
+
+/* === Bazarr cards / paper === */
+body .mantine-Paper-root {
+  background: rgba(30, 30, 30, 0.45) !important;
+  backdrop-filter: blur(10px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+  border-radius: 12px !important;
+  color: rgba(234, 235, 238, 0.9) !important;
+}
+
+/* === Bazarr modals === */
+body .mantine-Modal-content {
+  background: rgba(30, 30, 30, 0.8) !important;
+  backdrop-filter: blur(16px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.1) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.1) !important;
+  border-radius: 14px !important;
+}
+
+body .mantine-Modal-overlay {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* === Bazarr inputs === */
+body .mantine-Input-input,
+body .mantine-TextInput-input,
+body .mantine-Select-input {
+  background: rgba(30, 33, 54, 0.6) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.12) !important;
+  border-radius: 8px !important;
+  color: rgba(234, 235, 238, 0.95) !important;
+}
+
+/* === Bazarr buttons — transparent, rounded === */
+body .mantine-Button-root {
+  border-radius: 8px !important;
+}
+
+/* === Bazarr badges (LIVE, counts) === */
+body .mantine-Badge-root {
+  border-radius: 6px !important;
+}
+
+/* === Bazarr text colors === */
+body .mantine-Text-root,
+body .mantine-Title-root {
+  color: rgba(234, 235, 238, 0.9) !important;
+}
+
 /* === Glass inner bevel (Liquid Glass inspired) === */
 [class*="PageSidebar"],
 [class*="PageHeader-header"],
