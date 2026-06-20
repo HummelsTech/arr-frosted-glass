@@ -1,0 +1,438 @@
+/* ============================================================
+   Frosted Glass Dark — *Arr Apps (Sonarr, Radarr, Prowlarr, Bazarr)
+   A translucent frosted glass theme with backdrop-blur effects.
+
+   Requirements:
+     - ThemePark DOCKER_MODS with TP_THEME=dark as base
+     - CSS injected via Nginx Proxy Manager sub_filter
+     - Optional: custom background image
+
+   Background customisation:
+     Replace the background URL in body::before below, or use the
+     default dark gradient. Recommended: a blurred/bokeh wallpaper.
+   ============================================================ */
+
+/* === Background === */
+body {
+  background-color: #1e1e1e !important;
+  background-image: none !important;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20px;
+  z-index: -1;
+  /* Replace the URL below with your own background image, or keep the gradient */
+  background:
+    linear-gradient(135deg,
+      rgba(20, 30, 48, 0.95),
+      rgba(36, 59, 85, 0.9) 30%,
+      rgba(20, 30, 48, 0.95) 70%,
+      rgba(15, 20, 35, 0.98)
+    );
+  /* background: center / cover no-repeat url('YOUR_IMAGE_URL_HERE'); */
+  filter: blur(4px) saturate(1.2);
+}
+
+/* === Page wrappers — transparent === */
+.root,
+[class*="Page-page"],
+[class*="PageContent"],
+[class*="pageContentBodyWrapper"],
+[class*="contentBodyContainer"],
+[class*="contentBody"],
+[class*="innerContentBody"] {
+  background: transparent !important;
+}
+
+/* === Header — glass === */
+body [class*="PageHeader-header"] {
+  background: rgba(25, 28, 45, 0.55) !important;
+  backdrop-filter: blur(12px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
+  border-bottom: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+}
+
+/* === Sidebar — glass === */
+body [class*="PageSidebar-sidebarContainer"],
+body [class*="PageSidebar"] {
+  background: rgba(25, 28, 45, 0.2) !important;
+  backdrop-filter: blur(14px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.1) !important;
+  border-right: 0.5px solid rgba(234, 235, 238, 0.06) !important;
+}
+
+/* === Sidebar items — transparent, rounded === */
+body [class*="PageSidebarItem-item"],
+body [class*="PageSidebarItem-link"],
+body [class*="PageSidebarItem-iconContainer"],
+body [class*="PageSidebarItem-childLink"] {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+body [class*="PageSidebarItem-isActiveItem"],
+body [class*="PageSidebarItem-isActiveParentLink"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-radius: 8px !important;
+}
+
+body [class*="PageSidebarItem-item"]:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+}
+
+/* === Toolbar — fully transparent === */
+body [class*="PageToolbar-toolbar"],
+body [class*="PageToolbar"],
+body [class*="PageToolbarSection"] {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+}
+
+/* === Toolbar buttons — transparent, rounded === */
+body [class*="PageToolbarButton-toolbarButton"],
+body [class*="ToolbarMenuButton-menuButton"] {
+  background: rgba(25, 28, 45, 0.12) !important;
+  border-radius: 8px !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.06) !important;
+  margin: 2px 4px !important;
+  transition: background 0.2s ease !important;
+}
+
+body [class*="PageToolbarButton-toolbarButton"]:hover,
+body [class*="ToolbarMenuButton-menuButton"]:hover {
+  background: rgba(25, 28, 45, 0.3) !important;
+}
+
+/* ============================================================
+   POSTER CARDS (Sonarr: Series, Radarr: Movie)
+   ============================================================ */
+
+/* === Poster card container === */
+[class*="SeriesIndexPoster-content"],
+[class*="MovieIndexPoster-content"] {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+/* === Poster info footer (Monitored / WEB-2160p) === */
+[class*="SeriesIndexPoster-link"],
+[class*="MovieIndexPoster-link"] {
+  background: rgba(25, 28, 45, 0.65) !important;
+  backdrop-filter: blur(10px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  border-radius: 0 0 4px 4px !important;
+  overflow: hidden !important;
+}
+
+/* === Poster title row === */
+[class*="SeriesIndexPoster-title"],
+[class*="MovieIndexPoster-title"] {
+  background: rgba(25, 28, 45, 0.5) !important;
+}
+
+/* === Poster next airing / in cinemas date === */
+[class*="SeriesIndexPoster-nextAiring"],
+[class*="MovieIndexPoster-nextAiring"],
+[class*="MovieIndexPoster-inCinemas"],
+[class*="MovieIndexPoster-released"] {
+  background: rgba(25, 28, 45, 0.55) !important;
+}
+
+/* === Poster hover controls === */
+[class*="SeriesIndexPoster-controls"],
+[class*="MovieIndexPoster-controls"] {
+  background: rgba(25, 28, 45, 0.7) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* ============================================================
+   DETAIL PAGES (Series/Movie detail)
+   ============================================================ */
+
+/* === Detail header/banner === */
+[class*="SeriesDetails-header"],
+[class*="SeriesDetails-info"],
+[class*="SeriesDetails-titleRow"],
+[class*="SeriesDetails-headerContent"],
+[class*="MovieDetails-header"],
+[class*="MovieDetails-info"],
+[class*="MovieDetails-titleRow"],
+[class*="MovieDetails-headerContent"],
+[class*="seriesDetail"],
+[class*="movieDetail"],
+[class*="SeriesOverview"],
+[class*="MovieOverview"] {
+  background: rgba(25, 28, 45, 0.35) !important;
+  backdrop-filter: blur(12px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
+}
+
+/* === Detail backdrop overlay — semi-transparent === */
+body [class*="SeriesDetails-backdropOverlay"],
+body [class*="MovieDetails-backdropOverlay"] {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* === Season / file panels === */
+[class*="SeasonDetails"],
+[class*="ExpandableSection"],
+[class*="expandableSection"] {
+  background: rgba(30, 30, 30, 0.4) !important;
+  backdrop-filter: blur(8px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.1) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.06) !important;
+  border-radius: 12px !important;
+  margin-bottom: 8px !important;
+}
+
+/* === Episode / file rows === */
+[class*="EpisodeRow"],
+[class*="episodeRow"] {
+  background: transparent !important;
+  border-bottom: 0.5px solid rgba(234, 235, 238, 0.06) !important;
+}
+
+[class*="EpisodeRow"]:hover,
+[class*="episodeRow"]:hover {
+  background: rgba(255, 152, 0, 0.06) !important;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+[class*="SeriesIndexFooter"],
+[class*="MovieIndexFooter"],
+[class*="IndexerIndexFooter"],
+[class*="PageContentFooter"] {
+  background: rgba(25, 28, 45, 0.55) !important;
+  backdrop-filter: blur(10px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  border-top: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+}
+
+[class*="SeriesIndexFooter-legends"],
+[class*="SeriesIndexFooter-statistics"],
+[class*="MovieIndexFooter-legends"],
+[class*="MovieIndexFooter-statistics"] {
+  background: transparent !important;
+}
+
+/* ============================================================
+   TABLES (Activity, Queue, History, Prowlarr indexers)
+   ============================================================ */
+
+body table,
+body [class*="Table-table"] {
+  background: rgba(25, 28, 45, 0.35) !important;
+  backdrop-filter: blur(8px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.1) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+}
+
+body [class*="TableRow"],
+body [class*="TableRow"] td,
+body tr td {
+  border-bottom: 0.5px solid rgba(234, 235, 238, 0.06) !important;
+}
+
+body [class*="TableRow"]:nth-child(even) {
+  background: rgba(25, 28, 45, 0.15) !important;
+}
+
+body [class*="TableRow"]:hover,
+body tr:hover {
+  background: rgba(255, 152, 0, 0.08) !important;
+}
+
+body [class*="TableHeader"],
+body thead,
+body th {
+  background: rgba(25, 28, 45, 0.5) !important;
+  color: rgba(234, 235, 238, 0.9) !important;
+}
+
+/* ============================================================
+   MODALS & POPUPS
+   ============================================================ */
+
+[class*="Modal-modal"],
+[class*="ModalContent"],
+[class*="modal-content"],
+.modal-dialog .modal-content {
+  background: rgba(30, 30, 30, 0.8) !important;
+  backdrop-filter: blur(16px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.1) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.1) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+[class*="ModalBackground"],
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* === Dropdowns / menus === */
+[class*="MenuContent"],
+[class*="Menu-menu"],
+[class*="Popover"],
+[class*="popover"] {
+  background: rgba(30, 30, 30, 0.85) !important;
+  backdrop-filter: blur(14px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.1) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.1) !important;
+  border-radius: 10px !important;
+}
+
+[class*="MenuItem"]:hover,
+[class*="menuItem"]:hover {
+  background: rgba(255, 152, 0, 0.1) !important;
+}
+
+/* ============================================================
+   CARDS, PANELS, FORMS
+   ============================================================ */
+
+[class*="Card-card"],
+[class*="FieldSet"],
+[class*="fieldSet"] {
+  background: rgba(30, 30, 30, 0.45) !important;
+  backdrop-filter: blur(10px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+  border-radius: 12px !important;
+}
+
+[class*="AddNewSeries"],
+[class*="AddNewItem"],
+[class*="AddNewMovie"],
+[class*="SearchResult"] {
+  background: rgba(30, 30, 30, 0.5) !important;
+  backdrop-filter: blur(10px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.1) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+  border-radius: 12px !important;
+}
+
+[class*="Form-group"],
+[class*="formGroup"] {
+  background: rgba(30, 30, 30, 0.3) !important;
+  border-radius: 10px !important;
+  padding: 8px !important;
+}
+
+/* ============================================================
+   LABELS & TAGS
+   ============================================================ */
+
+body [class*="Label-default"],
+body [class*="Label-small"],
+body [class*="Label-large"],
+body [class*="Label-label"],
+body [class*="detailsLabel"] {
+  background: rgba(30, 33, 54, 0.5) !important;
+  color: rgba(234, 235, 238, 0.9) !important;
+  border-color: rgba(234, 235, 238, 0.15) !important;
+}
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+
+[class*="TextInput"],
+[class*="NumberInput"],
+[class*="FormInput"],
+input[type="text"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+  background: rgba(30, 33, 54, 0.6) !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.12) !important;
+  border-radius: 8px !important;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+body button,
+body [class*="Button-button"],
+body [class*="SpinnerButton"],
+body [class*="IconButton"],
+body [class*="PageHeaderActionsMenu-menuButton"] {
+  background: rgba(25, 28, 45, 0.15) !important;
+  border-radius: 8px !important;
+  border: 0.5px solid rgba(234, 235, 238, 0.08) !important;
+  box-shadow: none !important;
+}
+
+body button:hover,
+body [class*="Button-button"]:hover,
+body [class*="SpinnerButton"]:hover,
+body [class*="IconButton"]:hover {
+  background: rgba(25, 28, 45, 0.3) !important;
+}
+
+body [class*="Button-primary"],
+body [class*="Button-success"] {
+  background: rgba(255, 152, 0, 0.25) !important;
+  border-color: rgba(255, 152, 0, 0.3) !important;
+}
+
+body [class*="Button-danger"] {
+  background: rgba(234, 114, 135, 0.2) !important;
+  border-color: rgba(234, 114, 135, 0.3) !important;
+}
+
+/* ============================================================
+   MISC
+   ============================================================ */
+
+[class*="Calendar"],
+[class*="CalendarDay"] {
+  background: rgba(30, 30, 30, 0.4) !important;
+}
+
+[class*="Queue-queue"],
+[class*="QueueRow"] {
+  background: rgba(30, 30, 30, 0.35) !important;
+}
+
+[class*="InteractiveImport"],
+[class*="History-history"],
+[class*="Blacklist"],
+[class*="BlockList"] {
+  background: transparent !important;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(68, 68, 88, 0.5); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(68, 68, 88, 0.8); }
+
+/* === Glass inner bevel (Liquid Glass inspired) === */
+[class*="PageSidebar"],
+[class*="PageHeader-header"],
+[class*="Modal-modal"],
+[class*="Card-card"],
+[class*="FieldSet"],
+[class*="SeasonDetails"],
+[class*="ExpandableSection"] {
+  box-shadow:
+    3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.15) inset,
+    -2px -2px 0.5px -2px rgba(255, 255, 255, 0.1) inset,
+    0 0 8px 1px rgba(255, 255, 255, 0.06) inset,
+    0 12px 20px rgba(0, 0, 0, 0.28) !important;
+}
