@@ -41,7 +41,7 @@ cp frosted-glass.css /var/www/html/themes/
 
 **Option B — Use a CDN / raw GitHub:**
 ```
-https://raw.githubusercontent.com/HummelsTech/arr-frosted-glass/main/frosted-glass.css
+https://raw.githubusercontent.com/TheHumLab/arr-frosted-glass/main/frosted-glass.css
 ```
 
 ### Step 2: Configure Docker (ThemePark base)
@@ -73,7 +73,7 @@ Replace `YOUR_CSS_URL` with where you hosted the CSS in Step 1.
 
 **Example with GitHub raw URL:**
 ```nginx
-sub_filter '</head>' '<link rel="stylesheet" href="https://raw.githubusercontent.com/HummelsTech/arr-frosted-glass/main/frosted-glass.css" /></head>';
+sub_filter '</head>' '<link rel="stylesheet" href="https://raw.githubusercontent.com/TheHumLab/arr-frosted-glass/main/frosted-glass.css" /></head>';
 sub_filter_once on;
 ```
 
