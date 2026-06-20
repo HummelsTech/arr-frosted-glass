@@ -1,21 +1,84 @@
 /* ============================================================
    Frosted Glass Dark — *Arr Apps (Sonarr, Radarr, Prowlarr, Bazarr)
    A translucent frosted glass theme with backdrop-blur effects.
-
-   Requirements:
-     - ThemePark DOCKER_MODS with TP_THEME=dark as base
-     - CSS injected via Nginx Proxy Manager sub_filter
-     - Optional: custom background image
+   Self-contained — no ThemePark dependency required.
 
    Background customisation:
      Replace the background URL in body::before below, or use the
      default dark gradient. Recommended: a blurred/bokeh wallpaper.
    ============================================================ */
 
-/* === Background === */
+/* ============================================================
+   DARK BASE (replaces ThemePark dark — makes this CSS standalone)
+   ============================================================ */
 body {
   background-color: #1e1e1e !important;
   background-image: none !important;
+  color: #ddd !important;
+}
+
+/* Force dark on all native Sonarr/Radarr/Prowlarr elements */
+body .page,
+body #root,
+body [class*="Page-page"],
+body [class*="PageContent"],
+body [class*="PageContentBody"],
+body [class*="contentBody"],
+body [class*="innerContentBody"] {
+  color: #ddd !important;
+}
+
+/* Native table dark base */
+body table,
+body th, body td, body tr {
+  color: #ddd !important;
+  border-color: rgba(234, 235, 238, 0.08) !important;
+}
+
+body th {
+  background: rgba(25, 28, 45, 0.5) !important;
+}
+
+body tr:nth-child(even) {
+  background: rgba(25, 28, 45, 0.15) !important;
+}
+
+body tr:nth-child(odd) {
+  background: transparent !important;
+}
+
+/* Links */
+body a {
+  color: rgba(234, 235, 238, 0.9) !important;
+}
+
+body a:hover {
+  color: rgb(255, 152, 0) !important;
+}
+
+/* All text — ensure readability */
+body span, body p, body div, body label, body h1, body h2, body h3, body h4, body h5, body h6 {
+  color: rgba(234, 235, 238, 0.9) !important;
+}
+
+/* Muted/secondary text */
+body [class*="subtitle"],
+body [class*="Subtitle"],
+body [class*="secondary"],
+body [class*="hint"] {
+  color: rgba(234, 235, 238, 0.6) !important;
+}
+
+/* Native form elements dark */
+body input, body select, body textarea, body button {
+  color: #ddd !important;
+}
+
+/* Progress bars — keep their colors */
+body [class*="ProgressBar"],
+body [class*="progressBar"],
+body [class*="Progress-section"] {
+  color: inherit !important;
 }
 
 body::before {
@@ -159,12 +222,8 @@ body [class*="ToolbarMenuButton-menuButton"]:hover {
 
 /* === Detail header/banner — rounded === */
 [class*="SeriesDetails-header"],
-[class*="SeriesDetails-info"],
-[class*="SeriesDetails-titleRow"],
 [class*="SeriesDetails-headerContent"],
 [class*="MovieDetails-header"],
-[class*="MovieDetails-info"],
-[class*="MovieDetails-titleRow"],
 [class*="MovieDetails-headerContent"],
 [class*="seriesDetail"],
 [class*="movieDetail"],
@@ -175,6 +234,14 @@ body [class*="ToolbarMenuButton-menuButton"]:hover {
   -webkit-backdrop-filter: blur(12px) saturate(1.1) !important;
   border-radius: 12px !important;
   overflow: hidden !important;
+}
+
+/* Detail info/title — keep padding */
+[class*="SeriesDetails-info"],
+[class*="SeriesDetails-titleRow"],
+[class*="MovieDetails-info"],
+[class*="MovieDetails-titleRow"] {
+  padding: 16px 20px !important;
 }
 
 /* === Detail poster image — rounded === */
@@ -199,7 +266,25 @@ body [class*="MovieDetails-backdrop"] {
 }
 
 /* === Season / file panels === */
-[class*="SeasonDetails"],
+body [class*="SeriesDetailsSeason-season"] {
+  background: rgba(30, 30, 30, 0.4) !important;
+  backdrop-filter: blur(8px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.1) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  margin-bottom: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Season header & collapse button — no extra background */
+body [class*="SeriesDetailsSeason-header"],
+body [class*="SeriesDetailsSeason-collapseButtonContainer"] {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Radarr / generic expandable */
 [class*="ExpandableSection"],
 [class*="expandableSection"] {
   background: rgba(30, 30, 30, 0.4) !important;
@@ -433,6 +518,11 @@ body [class*="Button-danger"] {
   background: transparent !important;
 }
 
+/* === Sonarr custom scrollbar overlay === */
+body [class*="OverlayScroller-thumb"] {
+  background: rgba(68, 68, 88, 0.5) !important;
+}
+
 /* === Scrollbar === */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -562,17 +652,22 @@ body .mantine-Title-root {
   color: rgba(234, 235, 238, 0.9) !important;
 }
 
-/* === Glass inner bevel (Liquid Glass inspired) === */
+/* === Glass inner bevel (Liquid Glass inspired) — subtle only === */
 [class*="PageSidebar"],
 [class*="PageHeader-header"],
-[class*="Modal-modal"],
-[class*="Card-card"],
-[class*="FieldSet"],
-[class*="SeasonDetails"],
-[class*="ExpandableSection"] {
+[class*="Modal-modal"] {
   box-shadow:
     3px 3px 0.5px -3.5px rgba(255, 255, 255, 0.15) inset,
     -2px -2px 0.5px -2px rgba(255, 255, 255, 0.1) inset,
     0 0 8px 1px rgba(255, 255, 255, 0.06) inset,
     0 12px 20px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Cards/panels — subtle shadow only, no bevel border */
+[class*="Card-card"],
+[class*="FieldSet"],
+[class*="SeriesDetailsSeason-season"],
+[class*="ExpandableSection"] {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
 }
