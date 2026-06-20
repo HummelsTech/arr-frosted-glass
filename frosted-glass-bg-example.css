@@ -1,25 +1,29 @@
 /* Background — auto light/dark based on system preference */
 
-/* Dark mode (default / evening) */
+/* Dark mode (default / evening) — colorful night gradient */
 body::before {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(60, 100, 140, 0.25), transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(255, 152, 0, 0.06), transparent 50%),
-    radial-gradient(ellipse at 60% 80%, rgba(80, 120, 160, 0.15), transparent 50%),
-    linear-gradient(160deg, #0f1623, #162030 30%, #1a2a3d 60%, #0f1623) !important;
+    radial-gradient(ellipse at 10% 25%, rgba(40, 90, 160, 0.4), transparent 45%),
+    radial-gradient(ellipse at 90% 20%, rgba(255, 140, 30, 0.15), transparent 40%),
+    radial-gradient(ellipse at 50% 85%, rgba(30, 80, 150, 0.3), transparent 45%),
+    radial-gradient(ellipse at 75% 55%, rgba(60, 100, 180, 0.25), transparent 50%),
+    radial-gradient(ellipse at 25% 65%, rgba(120, 80, 180, 0.15), transparent 40%),
+    radial-gradient(ellipse at 60% 15%, rgba(200, 140, 60, 0.08), transparent 35%),
+    linear-gradient(150deg, #0a1220, #12203a 25%, #1a2d4a 50%, #142640 75%, #0d1828) !important;
   filter: none !important;
 }
 
-/* Light mode (daytime) — more variation for glass depth */
+/* Light mode (daytime) — colorful gradient for glass depth */
 @media (prefers-color-scheme: light) {
   body::before {
     background:
-      radial-gradient(ellipse at 15% 30%, rgba(120, 170, 220, 0.35), transparent 45%),
-      radial-gradient(ellipse at 85% 25%, rgba(255, 190, 80, 0.18), transparent 40%),
-      radial-gradient(ellipse at 50% 90%, rgba(100, 160, 210, 0.25), transparent 45%),
-      radial-gradient(ellipse at 75% 60%, rgba(180, 210, 240, 0.3), transparent 50%),
-      radial-gradient(ellipse at 30% 70%, rgba(200, 180, 220, 0.12), transparent 40%),
-      linear-gradient(150deg, #b8cce0, #ccdaec 25%, #dde8f2 50%, #d0dfed 75%, #bccfe4) !important;
+      radial-gradient(ellipse at 10% 25%, rgba(80, 140, 210, 0.45), transparent 45%),
+      radial-gradient(ellipse at 90% 20%, rgba(255, 170, 50, 0.28), transparent 40%),
+      radial-gradient(ellipse at 50% 85%, rgba(60, 130, 200, 0.35), transparent 45%),
+      radial-gradient(ellipse at 75% 55%, rgba(150, 190, 240, 0.4), transparent 50%),
+      radial-gradient(ellipse at 25% 65%, rgba(180, 140, 220, 0.2), transparent 40%),
+      radial-gradient(ellipse at 60% 15%, rgba(255, 200, 140, 0.15), transparent 35%),
+      linear-gradient(150deg, #9ab8d8, #b0cce4 25%, #c8ddef 50%, #b5c8de 75%, #a0bbd6) !important;
     filter: none !important;
   }
 }
